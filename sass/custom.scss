@@ -1,0 +1,235 @@
+/*!
+Theme Name: Quorum
+Theme URI: http://underscores.me/
+Author: Cavatina
+Author URI: https://cavatina.pl/
+Description: Description
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: quorum
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+Quorum is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+/**
+ *	Global
+ */
+@use 'global/grid';
+@use 'global/variables' as v;
+
+/**
+ *	Partials
+ */
+@use 'partials/siteHeader';
+@use 'partials/siteFooter';
+
+/**
+ *	Pages
+ */
+@use 'pages/home';
+@use 'pages/policy';
+@use 'pages/examples';
+@use 'pages/contact';
+@use 'pages/subpage';
+
+*{
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'abril-display', sans-serif;
+	box-sizing: border-box;
+	margin: 0;
+
+	&.no-scroll{
+		overflow: hidden;
+	}
+}
+
+a{
+	transition: ease .3s;
+	outline: none !important;
+	text-decoration: none;
+}
+
+.btn{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	max-width: fit-content;
+	max-width: -moz-max-content;
+	max-width: -webkit-fit-content;
+	height: 65px;
+	background-color: v.$orange;
+	border: 0;
+	border-radius: 0;
+	outline: none;
+	padding: 0;
+	padding-right: 80px;
+	position: relative;
+	cursor: pointer;
+	transition: ease .3s;
+
+	&:hover{
+		background-color: v.$orange_hover;
+
+		&:after{
+			right: 25px;
+		}
+	}
+
+	&:after{
+		content: '→';
+		font-family: 'abril-display';
+		font-weight: 700;
+		font-size: 22px;
+		line-height: 1;
+		color: #fff;
+		position: absolute;
+		right: 30px;
+		transition: ease .3s;
+	}
+
+	span{
+		font-size: 30px;
+		line-height: 1;
+		font-family: 'abril-display', sans-serif;
+		font-weight: 700;
+		color: #fff;
+		padding: 5px 27px 0;
+		position: relative;
+
+		&:after{
+			content: '';
+			width: 1px;
+			height: 36px;
+			background-color: #fff;
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translate(0, -50%);
+		}
+	}
+}
+@media (max-width: 1199px){
+	.btn{
+		height: 65px;
+		padding-right: 60px;
+
+		&:after{
+			right: 20px;
+		}
+		&:hover{
+			&:after{
+				right: 15px;
+			}
+		}
+
+		span{
+			font-size: 28px;
+			padding: 5px 20px 0;
+		}
+	}
+}
+@media (max-width: 575px){
+	.btn{
+		height: 55px;
+		padding-right: 50px;
+
+		&:after{
+			right: 15px;
+		}
+		&:hover{
+			&:after{
+				right: 10px;
+			}
+		}
+
+		span{
+			font-size: 24px;
+			padding: 3px 15px 0;
+
+			&:after{
+				height: 24px;
+			}
+		}
+	}
+}
+
+@-webkit-keyframes pulsate-bck {
+	0% {
+	  -webkit-transform: scale(1);
+			  transform: scale(1);
+	}
+	50% {
+	  -webkit-transform: scale(0.9);
+			  transform: scale(0.9);
+	}
+	100% {
+	  -webkit-transform: scale(1);
+			  transform: scale(1);
+	}
+}
+@keyframes pulsate-bck {
+	0% {
+	  -webkit-transform: scale(1);
+			  transform: scale(1);
+	}
+	50% {
+	  -webkit-transform: scale(0.9);
+			  transform: scale(0.9);
+	}
+	100% {
+	  -webkit-transform: scale(1);
+			  transform: scale(1);
+	}
+}
+
+/**
+ *	Page 404
+ */
+.error-404{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: calc(100vh - 730px);
+	padding: 30px 0;
+
+	h1{
+		font-size: 90px;
+		line-height: 100px;
+		text-align: center;
+		margin: 0;
+		color: v.$navy;
+	}
+	p{
+		font-size: 24px;
+		line-height: 36px;
+		color: v.$navy;
+		text-align: center;
+		margin: 0;
+	}
+}
+@media (max-width: 767px){
+	.error-404{
+		h1{
+			font-size: 70px;
+			line-height: 80px;
+		}
+		p{
+			font-size: 18px;
+			line-height: 24px;
+		}
+	}
+}
