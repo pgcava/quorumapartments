@@ -48,7 +48,7 @@
 	<div class="callModal">
 		<div class="callModal__wrap">
 			<div class="callModal__close"></div>
-			<h3>Skontaktuj się z nami</h3>
+			<h3>Skontaktuj się z nami!</h3>
 			<a href="tel:+48530052270"><span>+48 530 052 270</span></a>
 			<a href="tel:+48530075031"><span>+48 530 075 031</span></a>
 		</div>
