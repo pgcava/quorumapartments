@@ -10,31 +10,32 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
-
-		<?php
-		while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'template-parts/content', get_post_type() );
-
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'quorum' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'quorum' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
+	<main class="quorum quorum--article">
+		<div class="singleContent">
+            <div class="singleContent__wrap">
+                <div class="singleContent__header">
+                    <div class="image">
+						<?php echo get_the_post_thumbnail(); ?>
+                    </div>
+					<p class="date"><?php echo get_the_date('d F Y') ?></p>
+					<h1><?php the_title(); ?></h1>
+                </div>
+				<div class="singleContent__content">
+					<?php the_content(); ?>
+				</div>
+				<div class="singleContent__nav">
+					<?php
+						the_post_navigation(
+							array(
+								'prev_text' => esc_html__( 'Previous', 'holistic' ),
+								'next_text' => esc_html__( 'Next', 'holistic' ),
+							)
+						);
+					?>
+				</div>
+            </div>
+        </div>
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();
