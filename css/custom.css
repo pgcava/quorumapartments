@@ -1832,6 +1832,7 @@ body.page-template-page_contact .siteFooter__copyrights {
 }
 .singleContent__header .image {
   display: flex;
+  margin: 0 auto 20px;
 }
 .singleContent__header .image img {
   width: 100%;
